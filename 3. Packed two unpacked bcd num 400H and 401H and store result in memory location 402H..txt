@@ -1,0 +1,20 @@
+a. Pack the two unpacked BCD numbers stored in memory locations 400H and 401H and store result in memory location 402H. Assume the least significant digit is stored at 400H.
+Code
+LDA 0401H
+RLC
+RLC
+RLC
+RLC
+MOV C,A
+LDA 0400H
+ADD C
+STA 0402H
+HLT
+
+Output:
+Before Execution:  After Execution:
+
+0400H = 2           0400H = 2
+0401H = 3           0401H = 3
+0402H = XX          0402H = 32H 
+
