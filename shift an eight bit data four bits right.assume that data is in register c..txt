@@ -1,0 +1,18 @@
+a) write a prog to shift an eight bit data four bits right.assume that data is in register c.
+MVI C, 02H     
+MOV A, C       
+RRC
+RRC           
+RRC            
+RRC            
+MOV C, A       
+HLT
+
+Before Execution:
+A = XX
+C = XX
+
+After Execution:
+A = 20H
+C = 20H
+
