@@ -1,0 +1,22 @@
+d) Write a program to count the number of 1’s in the contents of register D (which has value 75H), and store the count in register B.
+MVI D, 75H     
+MVI C, 08H 
+MVI B, 00H    
+MOV A, D 
+ABC:RRC 
+JNZ XYZ      
+INR B          
+XYZ: DCR C     
+JNZ ABC        
+MOV A, B       
+STA 0100H      
+HLT
+
+OUTPUT:
+Before Execution	After Execution
+A=XX	                  A=05H
+D=XX	                  D=75H
+B=XX	                  B=05H
+0100H=XX	          0100H=05H
+
+
