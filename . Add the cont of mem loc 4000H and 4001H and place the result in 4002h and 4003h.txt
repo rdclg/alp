@@ -1,0 +1,21 @@
+. Add the contents of memory locations 4000H and 4001H and place the 
+result in the memory locations 4002H and 4003H. 
+
+SOLN:
+LHLD 4000H
+MVI B,00H
+MOV A,H
+ADD L
+JNC ABC
+INR B
+ABC: STA 4002H
+MOV A,B
+STA 4003H
+HLT
+
+output
+before exe   AFTER EXE
+4000H=2H      4000H=2H
+4001H=5H      4001H=5H
+4002H=XX      4002H=7H
+4003H=XX      4003H=0H
