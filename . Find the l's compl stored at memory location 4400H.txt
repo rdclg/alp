@@ -1,0 +1,12 @@
+. Find the l's complement of the number stored at memory location 4400H 
+and store the complemented number at memory location 4300H.
+
+SOLN:
+LDA 4400H
+CMA
+STA 4300H
+HLT
+output 
+before Execution           After Execution
+4400H = (15)₁₀ = (0F)H     4400H = (15)₁₀ = (0F)H
+4300H = XX                 4300H = (240)₁₀ = (F0)H 
