@@ -1,0 +1,15 @@
+ Subtract the contents of memory location 4001H from the memory 
+location 2000H and place the result in memory location 4002H. 
+
+SOLN
+LDA 4001H
+MOV B,A
+LDA 2000H
+SUB B
+STA 4002H
+HLT
+OUTPUT:
+Before Execution	After Execution
+2000H=05H	        2000H=05H
+4001H= 02H	        4001H= 02H
+4002H=XX	        4002H=03H
