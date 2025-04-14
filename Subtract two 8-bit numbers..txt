@@ -1,0 +1,13 @@
+Subtract two 8-bit numbers. 
+SOLN:
+MVI A,09H
+MVI B,05H
+SUB B
+STA 2000H
+HLT
+
+Output Table:
+Before Execution	After Execution
+A = XX            	A = 04H
+B = XX	                B = 05H
+2000H = XX	        2000H = 04H
