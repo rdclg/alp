@@ -1,0 +1,14 @@
+Find the 2's complement of the number stored at memory location 4200H 
+and store the complemented number at memory location 4300H
+
+SOLN:
+LDA 0100H
+CMA
+ADI 01H
+STA 0200H
+HLT 
+
+OUTPUT:
+Before Execution	After Execution
+0100H=(20)10=14H	0100H=(20)10=14H
+0200H= XXH	0200H=(236)10=ECH
