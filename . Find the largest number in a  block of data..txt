@@ -1,0 +1,55 @@
+. Find the largest number in a block of data. The length of the block is in memory location 200H and the block itself starts from memory location 201H. Store the maximum number in memory location 300H. Assume that the numbers in the block are all 8 bit unsigned binary numbers.
+
+Code:
+
+LDA 0200H
+
+MOV CA
+
+SUB A
+
+LXI H,0201H
+
+Back CMP M
+
+JNC Skip
+
+MOV A,M
+
+Skip: INX H
+
+DCR C
+
+JNZ Back
+
+STA 0300H
+
+HLT
+output-
+
+BEFORE EXECUTION
+
+0200H=05H
+0201H-01H
+0202H=2H
+0203H-03H
+0204H=09H
+0205H-04H
+0300H=00
+
+AFTER EXECUTION
+
+0200H = 05H
+
+0201H = 01H
+
+0202H = 2H
+
+0203H = 03H
+
+0204H = 09H
+
+0205H = 04H
+
+0300H = 09H
+ 
