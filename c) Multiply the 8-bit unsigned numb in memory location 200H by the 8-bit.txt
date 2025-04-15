@@ -1,0 +1,51 @@
+c) Multiply the 8-bit unsigned number in memory location 200H by the 8-bit unsigned number in memory location 201H. Store the 8 least significant bits of the result in memory location 300H and the 8 most significant bits in memory location 301H
+
+code:
+
+LDA 0200H
+
+MVI B,00H
+
+MOV CA
+
+SUB A
+
+LXI H,0201H
+
+Back: ADD M
+
+JNC XYZ
+
+INR B
+
+XYZ: DCR C
+
+JNZ Back
+
+STA 0300H
+
+MOV A,B
+
+STA 0301H
+
+HLT
+
+OUTPUT
+Before execution
+
+0200H=XX
+
+0201H=XX
+
+0300H=XX
+
+0301H=XX
+After execution
+
+0200H=03H
+
+0201H-02H
+
+0300H=06H
+
+0301H=00H
