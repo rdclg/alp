@@ -1,0 +1,65 @@
+Write an assembly language program to separate even numbers from the given list of 10 numbers and store them in the another list starting from 500H. Assume starting address of 10 number list is 100M
+
+Code:
+
+LXI 1,0100H
+
+LXI 0,0500H
+
+MVI CCAH
+
+Back: MOV A,M
+
+ANI DIH
+
+INZ Skip
+
+MOV A,M
+
+STAX D
+
+INX D
+
+Skip: INX H
+
+DCR.C
+
+JNZ Back
+
+HLT
+
+Output:-
+Before execution
+
+0100-01h
+0101-02h
+0102-03h
+0103-04h
+0104-05h
+0105-06h
+0106=07h
+0107-08h
+0108-09h
+0109-10h
+0500=XX
+0501=XX
+0502=XX
+0503=XX
+0504-XX
+After execution
+
+0100-01h
+0101-02h
+0102-03h
+0103-04h
+0104-05h
+0105-06h
+0106=07h
+0107-08h
+0108-09h
+0109-10h
+0500=02h
+0501-04h
+0502-06h
+0503-08h
+0504-10h
