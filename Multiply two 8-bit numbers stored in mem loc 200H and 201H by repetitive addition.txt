@@ -1,0 +1,52 @@
+Multiply two 8-bit numbers stored in memory locations 200H and 201H by repetitive addition and store the result in memory locations 300H and 301H.
+
+Code
+
+LDA 0200H
+
+MVI B,OOH
+
+MOV CA
+
+SUB A
+
+LXI H,0201 H
+
+Back: ADD M
+
+JNC XYZ
+
+INR B
+
+XYZ DCR C
+
+JNZ Back
+
+STA 0300H
+
+MOV A,B
+
+STA 0301H
+
+HLT
+
+OUTPUT:-
+BEFORE EXECUTION
+
+02004-05H
+
+0201-03H
+
+0300M-00
+
+0301H-00
+
+AFTER EXECUTION
+
+0200H-05H
+
+0201H-03H
+
+0300H(15)=OF
+
+0301H-00
