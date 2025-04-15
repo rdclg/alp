@@ -1,0 +1,69 @@
+A block of data consisting of 10 bytes is stored in memory starting at 300H. This block is to be shifted (relocated) in memory from 350H onwards. Do not shift the block or part of the block anywhere else in the memory.
+
+Code:
+
+MVI D,OAH
+
+LXI H,0300H
+
+LXI 8,0350H
+
+ABC: MOV AM
+
+STAX B
+
+INX H
+
+INX B
+
+DCR D
+
+JNZ ABC
+
+HLT
+
+Output:
+Before execution
+
+0300-01h
+0301-02h
+0302-03h
+0303-04h
+0304-05h
+0305-06h
+0306-07h
+0307-08h
+0308-09h
+0309-10h
+0350-XX
+0351=XX
+0352-XX
+0353=XX
+0354-XX
+0355-XX
+0356-XX
+0357=XX
+0358-XX
+0359-XX
+After execution
+
+0300-01h
+0301-02h
+0302-03h
+0303-04h
+0304-05h
+0305-06h
+0306-07h
+0307-08h
+0308-09h
+0309-10h
+0350-01h
+0351-02h
+0352-03h
+0353-04h
+0354-05h
+0355-06h
+0356-07h
+0357-08h
+0358-09h
+0359-10h
