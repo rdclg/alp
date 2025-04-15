@@ -1,0 +1,52 @@
+d) Find the square of the given numbers from memory location 400H and
+
+store the result from memory location-600H
+
+Code:
+
+LXI H,0500H :Initialize lookup table pointer
+
+LXI D,0400H:Initialize source pointer
+
+LXI B,0600H:Initialize destination pointer
+
+Back: LDAX D: Get the number
+
+MOV CA: Move the number to C
+
+MOV A,M: Get the square
+
+STAX B: Store the result at the destination memory location
+
+INX D: Increment source memory pointer
+
+INX B: Increment destination memory pointer
+
+INX H: Increment lock up pointer pointer
+
+MOV A,C: Move the number from C to A
+
+CPI 05H: check for the last number
+
+JNZ Back: If not repeat
+
+HLT: Terminate the program
+
+OUTPUT:-
+BEFORE EXECUTION
+
+0400H-OH
+0401H-01H
+0402H-02H
+0403H-03H
+0404H-04H
+0500H-OH
+
+AFTER EXECUTION
+
+0400H-OH
+0401H-01H
+0402H-02H
+0403H-03H
+0404H-04H
+0500H=OH
