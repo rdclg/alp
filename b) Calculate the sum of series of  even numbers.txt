@@ -1,0 +1,73 @@
+b) Calculate the sum of series of even numbers from the list of numbers.
+
+The length of the list is in memory location 200H and the series itself
+
+begins from memory location 201H. Assume the sum to be 8 bit number
+
+so you can ignore carries and store the sum at memory location 300H
+
+Code
+
+LDA 0200H
+
+MOV CA
+
+MVI 8,00H
+
+LXI H,0201H
+
+Back: MOV A,M
+
+ANI 01H
+
+JNZ Skip
+
+MOV A,M
+
+ADD B
+
+MOV BA
+
+Skip: INX H
+
+DCR C
+
+JNZ Back
+
+MOV A,B
+
+STA 0300H
+
+HLT
+
+OUTPUT:
+BEFORE EXECUTION
+
+200H = 5H
+
+201H = 7H
+
+202H = 2H
+
+203H = 3H
+
+204H = 4H
+
+205H = 5H
+
+300H = XX
+ AFTER EXECUTION
+
+0200H=05H
+
+0201H-07H
+
+0202H-02H
+
+0203H-03H
+
+0204H-04H
+
+0205H=05H
+
+0300H=06H
