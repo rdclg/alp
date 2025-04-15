@@ -1,0 +1,53 @@
+Add even parity to a string of 7-bit ASCII characters. The length of the string is in memory location 200H and the string itself begins in memory location 201H. Piace even parity in the most significant bit of each
+
+character.
+
+Code:
+
+LDA 0200H
+
+MOV B,A
+
+LXI H,0201H
+
+ABC: MOV A,M
+
+ORI 80H
+
+MOV MA
+
+INX H
+
+DCR B
+
+JNZ ABC
+
+HLT
+
+OUTPUT:-
+Before execution
+
+0200 = 05h
+
+0201 = 03H
+
+0202 = 01H
+
+0203 = 06H
+
+0204 = 04H
+
+0205 = 07H
+After execution
+
+0200 = 05h
+
+O201=(131) 10 = 83H
+
+O201=(120) 10 = 81H
+
+0203=(134) 10 = 86H
+
+O204=(132) 10 = 84H
+
+0205=(135) 10 = 87H
