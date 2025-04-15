@@ -1,0 +1,64 @@
+. Find the number of negative elements (most significant bit 1) in a block of data. The length of the block is in memory location 200H and the block itself begins in memory location 201H Store the number of negative elements in memory location 300H
+Code
+
+LDA 0200H
+
+MOV.CA
+
+MVI B,DOH
+
+LXI H,0201H
+
+Back MOV A,M
+
+ANI 80H
+
+JZ Skip
+
+INR B
+
+Skip:
+
+INX H
+
+DCR C
+
+JNZ Back
+
+MOV A,B
+
+STA 0300H
+
+HLT
+
+OUTPUT:-
+BEFORE EXECUTION
+
+0200H = 05H
+
+0201H = 01H
+
+0202H = 129H
+
+0203H = 03H
+
+0204H = 132H
+
+0205H = 04H
+
+0300H = 00
+AFTER EXECUTION
+
+0200H-05H
+
+0201H-01H
+
+0202H=129H
+
+0203H-03H
+
+0204H=132H
+
+0205H-04H
+
+0300H-02H
