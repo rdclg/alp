@@ -1,0 +1,56 @@
+ The length of the series is in memory location 200H and the series begins from memory location 201H. i) Consider the sum to be 8 bit number. So, ignore carries. Store the sum at memory location 300H. 
+
+1)
+
+LDA 0200H
+
+MOV CA
+
+SUB A
+
+LXI H,0201H
+
+Back: ADD M
+
+INX H
+
+DCR C
+
+JNZ Back
+
+STA 0300H
+
+HLT
+
+Output-
+BEFORE EXECUTION
+
+0200H=05H
+
+0201H-01H
+
+0202H-02H
+
+0203H-03H
+
+0204H-04H
+
+0205H=05H
+
+0300H=XX
+
+AFTER EXECUTION
+
+0200H-05H
+
+0201H-01H
+
+0202H-02H
+
+0203H-03H
+
+0204H-04H
+
+0205H-05H
+
+0300H (15)10=OF
