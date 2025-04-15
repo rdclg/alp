@@ -1,0 +1,74 @@
+ Two decimal numbers six digits each, are stored in BCD package form. Each number occupies a sequence of byte in the memory. The starting address of first number is 100H Write an assembly language program that adds these two numbers and stores the sum in the same format starting from memory location 300H.
+
+code:
+
+LXI H,0100H
+
+LXU 0,0106H
+
+LXI 8,0300H
+
+Back: LDAX D
+
+ADD M
+
+DAA
+
+STAX B
+
+INX H
+
+INX D
+
+INX B
+
+MOV A,L
+
+CPI 06H
+
+JNZ Back
+
+HLT
+
+OUTPUT:-
+BEFORE EXECUTION
+
+0100H = 02H
+0101H = 01H
+0102H = 02H
+0103H = 01H
+0104H = 02H
+0105H = 01H
+0106H = 02H
+0107H = 01H
+0108H = 02H
+0109H = 01H
+010AH = 02H
+010BH = 01H
+0300H = XX
+0301H = XX
+0302H = Xx
+O303H = XX
+O304H = XX
+0305H = XX
+
+AFTER EXECTION
+
+0100H-02H
+0101H-01H
+0102H-02H
+0103H-01H
+0104H-02H
+0105H-01H
+0106H-02H
+0107H-01H
+0108H-02H
+0109H-01H
+010AH-02H
+010BH-01H
+0300H-04H
+0301H-02H
+0302H-04H
+0303H-02H
+0304H-04H
+0305H-02H
