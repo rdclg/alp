@@ -1,0 +1,39 @@
+) Add two 4 digit BCD numbers in HL and DE register pairs and store result in memory locations, 2300H and 2301H. Ignore carry after 16 bit.
+
+Code:
+
+LXI H,0204H
+
+LXI D,0203H
+
+MOV A,L
+
+ADD E
+
+DAA
+
+MOV L,A
+
+MOV A,H
+
+ADC D
+
+DAA
+
+MOV H,A
+
+SHLD 0200H
+
+HLT
+
+OUTPUT:
+
+BEFORE EXECUTION
+
+0200H-XX
+0201H-XX
+
+AFTER EXECUTION
+
+0200H-07H
+0201H-04H
