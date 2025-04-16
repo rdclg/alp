@@ -1,0 +1,39 @@
+c) Write an assembly language program to multiply 2 BCD numbers.
+
+Code:
+
+LDA 0200H
+
+MOV C,A
+
+SUB A
+
+LXI H,0201H
+
+Back: ADD M
+
+DAA
+
+XYZ: DCR C
+
+JNZ Back
+
+STA 0300H
+
+HLT
+
+OUTPUT:-
+BEFORE EXECUTION
+
+0200-07H
+
+0201-04H
+
+0300=XX
+AFTER EXECUTION
+
+0200=07H
+
+0201=04H
+
+0300=(40)10=28H
