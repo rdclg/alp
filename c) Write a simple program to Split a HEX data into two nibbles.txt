@@ -1,0 +1,49 @@
+c) Write a simple program to Split a HEX data into two nibbles and store it in memory.
+
+Code:
+
+LXI H,0200H
+
+MOV A,M
+
+MOV B,A
+
+ANI OFH
+
+INX H
+
+MOV M,A
+
+MOV A,B
+
+ANI OFOH
+
+RRC
+
+RRC
+
+RRC
+
+RRC
+
+INX H
+
+MOV M,A
+
+HLT
+
+Output :
+Before execution
+
+0200h=(35)10=23H
+
+0201h=XX
+
+0202h=XX
+After execution
+
+0200h (35)10-23H
+
+0201h=03H
+
+0202h=02H
