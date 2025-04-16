@@ -1,0 +1,55 @@
+DAA instruction is not present. Write a sub routine which will perform the
+
+same task as DAA
+
+Code:
+
+MVI A,7DH
+
+MOV B,A
+
+ANI OFH
+
+CPI DAH
+
+JC UPPER
+
+MOV A,B
+
+ADI 06H
+
+MOV B,A
+
+JMP UPPER1
+
+UPPER: MOV A,B
+
+UPPER1: ANI OFOH
+
+RRC
+
+RRC
+
+RRC
+
+RRC
+
+CPI OAH
+
+JC XYZ
+
+MOV A,B
+
+ADI 60H
+
+JMP ABC
+
+XYZ: MOV A,B
+
+ABC: HLT
+Before execution
+
+A=XX
+After execution
+
+A = 83H
