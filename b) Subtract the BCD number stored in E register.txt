@@ -1,0 +1,29 @@
+b) Subtract the BCD number stored in E register from the number stored in the D register.
+
+Code:
+
+MVI D,15H
+
+MVI E,12H
+
+MVI A,99H
+
+SUB E
+
+INR A
+
+ADD D
+
+DAA
+
+STA 0300H
+
+HLT
+
+OUTPUT:-
+BEFORE EXECUTION
+
+0300H=XX
+AFTER EXECUTION
+
+0300H=03H
